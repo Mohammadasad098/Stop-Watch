@@ -1,5 +1,5 @@
 
-const second = document.querySelector(".sec");
+const time = document.querySelector(".time");
 const head = document.querySelector("h1")
 
 
@@ -11,16 +11,17 @@ function timer(){
     let mints = Math.floor((sec - (hours * 3600))/ 60);
     let secs = sec % 60;
 
-    if(secs  < 10) secs = '0' + secs;
-    if(mints < 10) mints = '0' + mints;
-    if(hours < 10) hours = '0' + hours;
+    if(secs  < 10) secs = ' 0' + secs; 
+    if(mints < 10) mints = ' 0' + mints;
+    if(hours < 10) hours = ' 0' + hours;
 
     
-    head.innerHTML = `${hours}:${mints}:${secs}`
+    head.innerHTML = `${hours} : ${mints} : ${secs}`
 
 }
 
 function watchstart(){
+    console.log('watch start');
     if(intervel){
         return
     }
@@ -29,13 +30,14 @@ function watchstart(){
 }
 
 function watchstop(){
+    console.log('watch stop');
     clearInterval(intervel)
-    // console.log("Stop button clicked"); 
     intervel = null;
 }
 
 function watchreset(){
-    stopWatch();
+    console.log('watch reset');
+    watchstop();
     sec = 0;
-    head.innerHTML = "00:00:00"
+    head.innerHTML = "00 : 00 : 00"
 }
