@@ -1,6 +1,6 @@
 
 const time = document.querySelector(".time");
-const head = document.querySelector("h1")
+const head = document.querySelector("#head")
 
 
 let sec = 0;
